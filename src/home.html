@@ -1,0 +1,133 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="slider.html">
+<dom-module id="home-view">
+
+  <template>
+
+    <style>
+      :host {
+        display: block;
+        padding: 10px;
+        bottom: 0
+      }
+      .card {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        margin: 24px;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #757575;
+      }
+
+      h1 {
+        font-size: 22px;
+        margin: 16px 0;
+        color: #212121;
+      }
+      .nav-button .button{
+        padding: 10px;
+        text-transform: uppercase;
+        background:white;
+        border: none;
+        color:var(--app-secondary-color);
+        font-size: 16pt;
+        margin: 10px ;
+        border-radius: 2px;
+        border-radius: 100px;
+        border:solid 1px white;
+      }
+      .nav-button .button:hover{
+        cursor: pointer;
+        text-shadow: 0 -1px 1px gray;
+        border:solid 1px black;
+      }
+
+      @media (max-width:800px) {
+        .nav-button{
+          position: absolute;
+          bottom:0;
+          top: 64px;
+          text-align: center;
+          width: 100%;
+          z-index: 100;
+        }
+      }
+      @media (min-width:800px) {
+        .nav-button{
+          position: absolute;
+          bottom:0;
+          text-align: center;
+          width: 100%;
+          z-index: 100;
+        }
+      }
+      .cover{
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url(images/bg2.jpg);
+        position: fixed;
+        background-size: cover;
+      }
+      .icon{
+        position: relative;
+        margin: 0 auto;
+        border-radius: 50%
+      }
+      .menu{
+        padding-top: 100px
+        width : 100%;
+
+      }
+      .menu .title{
+        padding: 5px 15px;
+        margin: 10px auto;
+        font-size: 14pt;
+        color: var(--app-secondary-color);
+        background: white;
+        border-radius: 45px
+      }
+    </style>
+
+<div class="nav-button">
+  <img src="img/icd.png"/ class="icon">
+  <p style="color:white;font-size:16pt;font-weight:100;margin:10px">
+    <b>Shree Durga Crane services</b> started by <b>Anil Bangera</b> in 2008. We provide all type of <b>Machine Loading</b> and <b>Unloading</b>
+    and also <b>Erection of Machines</b>
+  </p>
+
+  <div style="" class="card ">
+<div class="menu " ><span class="title">Menu</span></div>
+  <a name="cranes" href="/cranes">  <button class="button ">Cranes</button></a>
+  <a name="gallery" href="/gallery">  <button class="button ">Photo gallery</button></a>
+  <a name="about" href="/about">  <button class="button ">About</button></a>
+  <a name="contact" href="/contact">  <button class="button ">Contact us</button></a>
+  </div>
+</div>
+<div class="cover">
+
+</div>
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'home-view'
+
+    });
+
+  </script>
+
+</dom-module>
