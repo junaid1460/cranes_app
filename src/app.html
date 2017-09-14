@@ -1,0 +1,247 @@
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-ripple/paper-ripple.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+ <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+ <link rel="import" href="../bower_components/iron-icons/communication-icons.html">
+ <link rel="import" href="../bower_components/iron-icons/notification-icons.html">
+ <link rel="import" href="tags.html">
+
+ <link rel="import" href="../bower_components/app-layout/app-scroll-effects/effects/waterfall.html">
+
+<dom-module id="cranes-app">
+
+  <template>
+
+    <style>
+
+      :host {
+        display: block;
+        --app-primary-color:#607d8b;
+        --app-secondary-color: black;
+      }
+
+      app-header {
+        background-color: var(--app-primary-color);
+        color: #fff;
+      }
+
+      app-header paper-icon-button {
+        --paper-icon-button-ink-color: white;
+      }
+
+      .drawer-list {
+      }
+
+      .drawer-list a {
+        display: block;
+        padding: 0 16px;
+        line-height: 40px;
+        text-decoration: none;
+        color: var(--app-secondary-color);
+      }
+
+      .drawer-list a.iron-selected {
+        color: var(--app-primary-color);
+        font-weight: bold;
+        background-color:rgb(239,239,239);
+      }
+
+      .drawer-list a.subroute {
+        padding-left: 32px;
+      }
+
+      .drawer-list a{
+          position: relative;
+      }
+
+     app-drawer{
+       --app-drawer-scrim-background:rgb(23,23,222,1);
+     }
+
+      app-drawer button.close{
+        visibility: visible;
+        color: black;
+        position: relative;;
+        padding: 10px 20px 10px 20px;
+        border-radius: 26px;
+        border: 2px solid var(--app-primary-color);
+        color: var(--app-primary-color);
+        background: white;
+        width: 80%;
+        margin-top: 20%
+
+      }
+      app-drawer[persistent] button.close{
+        visibility: hidden;
+      }
+      paper-ripple{
+        color: #ff5722
+      }
+      app-drawer iron-selector[mobile]{
+        display: block;
+      }
+      app-drawer[persistent] iron-selector[mobile]{
+        display: none;
+      }
+      app-drawer iron-selector[desktop]{
+        display: none;
+      }
+      app-drawer[persistent] iron-selector[desktop]{
+        display: block;
+      }
+
+iron-pages{
+  display: block;
+position: absolute;
+left: 0px;
+right: 0px;
+bottom: 0px;
+top: 64px;
+}
+card-view{
+
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    margin: 24px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #757575;
+    border-bottom: 7px solid var(--app-primary-color);
+  }
+  .cover{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+
+  }
+#layoutx{
+
+  background: url(images/bg2.jpg);
+  background-size: cover;
+}
+    </style>
+
+    <app-location route="{{route}}"></app-location>
+    <app-route
+        route="{{route}}"
+        pattern="/:page"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
+
+    <app-drawer-layout fullbleed>
+
+      <!-- Drawer content -->
+      <app-drawer id="drawer" swipeOpen="true" >
+        <app-toolbar>Navigation</app-toolbar>
+        <iron-selector  selected="[[page]]" attr-for-selected="name" class="drawer-list desk" role="navigation" desktop>
+          <a name="home" href="/home"><iron-icon icon="icons:home"></iron-icon> HOME<paper-ripple></paper-ripple></a>
+          <a name="cranes" href="/cranes"><iron-icon icon="notification:airline-seat-recline-extra"></iron-icon> CRANES<paper-ripple></paper-ripple></a>
+          <a name="gallery" href="/gallery"><iron-icon icon="icons:view-carousel"></iron-icon> PHOTO GALLERY<paper-ripple></paper-ripple></a>
+          <!--a name="work" href="/work"><iron-icon icon="icons:history"></iron-icon> WORK HISTORIES<paper-ripple></paper-ripple></a-->
+          <a name="about" href="/about"><iron-icon icon="icons:info-outline"></iron-icon> ABOUT<paper-ripple></paper-ripple></a>
+          <a name="contact" href="/contact"><iron-icon icon="communication:business" ></iron-icon> CONTACT US<paper-ripple></paper-ripple></a>
+          <a name="thanks" href="/thanks"><iron-icon icon="communication:business" ></iron-icon> THANKS TO<paper-ripple></paper-ripple></a>
+          <div>
+
+          </div>
+      </iron-selector>
+
+      <iron-selector  selected="[[page]]" attr-for-selected="name" class="drawer-list desk" role="navigation" mobile>
+<a name="home" href="/home" drawer-toggle><iron-icon icon="icons:home"></iron-icon> HOME<paper-ripple></paper-ripple></a>
+<a name="cranes" href="/cranes" drawer-toggle><iron-icon icon="notification:airline-seat-recline-extra"></iron-icon> CRANES<paper-ripple></paper-ripple></a>
+<a name="gallery" href="/gallery" drawer-toggle><iron-icon icon="icons:view-carousel"></iron-icon> PHOTO GALLERY<paper-ripple></paper-ripple></a>
+<a name="about" href="/about" drawer-toggle><iron-icon icon="icons:info-outline"></iron-icon> ABOUT<paper-ripple></paper-ripple></a>
+<a name="contact" href="/contact" drawer-toggle><iron-icon icon="communication:business" ></iron-icon> CONTACT US<paper-ripple></paper-ripple></a>
+<a name="thanks" href="/thanks" drawer-toggle><iron-icon icon="communication:business" ></iron-icon> THANKS TO<paper-ripple></paper-ripple></a>
+
+    </iron-selector>
+      </app-drawer>
+
+      <!-- Main content -->
+      <app-header-layout id="layoutx" has-scrolling-region>
+
+        <app-header condenses reveals effects="waterfall">
+          <app-toolbar>
+            <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+            <div title>Shree Durga Cranes</div>
+          </app-toolbar>
+        </app-header>
+
+        <iron-pages id="pages" role="main" selected="[[page]]" attr-for-selected="name" entry-animation="[[entryAnimation]]" exit-animation="[[exitAnimation]]">
+
+          <cranes-view name="cranes"></cranes-view>
+          <home-view name="home"></home-view>
+          <work-view name="work"></work-view>
+          <about-view name="about"></about-view>
+          <contact-view name="contact"></contact-view>
+          <gallery-view name="gallery"></gallery-view>
+          <thanks-view name="thanks"></thanks-view>
+          <div class="cover">
+
+          </div>
+        </iron-pages>
+
+      </app-header-layout>
+
+
+    </app-drawer-layout>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'cranes-app',
+
+      properties: {
+
+        page: {
+          type: String,
+          reflectToAttribute: true,
+          observer: '_pageChanged'
+        },
+
+      },
+
+      observers: [
+        '_routePageChanged(routeData.page)'
+      ],
+
+      _routePageChanged: function(page) {
+        page=page.toString();
+        var x=["home","contact","about","cranes","gallery","thanks"];
+        this.page="home";
+        for(i=0;i<x.length;i++){
+          if(page==x[i]){
+            this.page=page;
+          }
+        }
+        ga('set', 'page', "/"+page);
+ga('send', 'pageview');
+      },
+
+      _pageChanged: function(page) {
+        // load page import on demand.
+
+
+        this.importHref(
+          this.resolveUrl( page + '.html'), null, null, true);
+
+      }
+
+    });
+  </script>
+
+</dom-module>
