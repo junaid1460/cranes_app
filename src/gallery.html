@@ -1,0 +1,38 @@
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<dom-module id="gallery-view">
+
+  <template >
+    <style>
+    .card {
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #fff;
+      color: var(--app-primary-color);
+      display:inline-block;
+      margin: 24px;
+
+    }
+    #gallery{
+      width: 100%;
+      height:100%;
+      position: relative;;left:0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 1000
+    }
+    </style>
+<iframe src="test.html" id="gallery" frameborder="0"   allowfullscreen></iframe>
+<tag-view style=""></tag-view>
+<script language="javascript">
+</script>
+  </template>
+  <script>
+  Polymer({
+    is: 'gallery-view'
+  });
+  </script>
+
+</dom-module>
