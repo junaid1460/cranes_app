@@ -1,0 +1,81 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
+
+  <title>Shree Durga Crane Services</title>
+
+  <link rel="shortcut icon" sizes="32x32" href="/src/img/icd.png">
+
+  <meta name="theme-color" content="#fff">
+  <link rel="manifest" href="/manifest.json">
+  <script>
+  if(document.head.createShadowRoot) {
+    // I can shadow DOM
+} else {
+    // I can't
+    window.location = "/less/"
+}
+    window.Polymer = {lazyRegister: false, dom: 'shadow'};
+    (function() {
+      if ('registerElement' in document
+          && 'import' in document.createElement('link')
+          && 'content' in document.createElement('template')) {
+      } else {
+        var e = document.createElement('script');
+        e.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
+        document.head.appendChild(e);
+      }
+    })();
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+      });
+    }
+
+  </script>
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82126006-1', 'auto');
+</script>
+<!-- End Google Analytics -->
+  <link rel="import" href="/src/app.html">
+
+
+</head>
+<body style="background-color:#eee">
+
+
+    <style>
+
+    html body{
+    background-color:#EEE
+    }
+    .iron-image-0 #img.iron-image{
+      width: auto;
+      height: inherit;
+    }
+    h1 {
+      font-size: 22px;
+      margin: 16px 0;
+      color: #212121;
+    }
+
+        * {
+
+            font-family: 'Roboto', 'Noto', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            box-sizing: border-box;
+            max-width:100%;
+
+        }
+
+    </style>
+    <cranes-app></cranes-app>
+</body>
+</html>
