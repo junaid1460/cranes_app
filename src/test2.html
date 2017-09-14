@@ -1,0 +1,15 @@
+<html>
+<body>
+  <iframe src="test.html" frameborder="0" scrolling="no" id="ifrm" onload="resize(this)" allowfullscreen></iframe>
+  <script type="text/javascript">
+      var resize = function(x){
+        x.style.height=x.contentWindow.document.body.scrollHeight +'px';
+      }
+  </script>
+  <style>
+      iframe#ifrm{
+        width: 100%;
+      }
+  </style>
+</body>
+</html>
