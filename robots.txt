@@ -1,0 +1,8 @@
+user-agent:*
+allow:/home
+allow:/cranes
+allow:/contact
+allow:/gallery
+allow:/about
+disallow:/src/*
+disallow:/bower_components/*
