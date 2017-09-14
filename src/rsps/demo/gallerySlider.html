@@ -1,0 +1,84 @@
+
+
+
+
+
+
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<dom-module id="gallery-slider">
+
+  <template >
+    <style>
+    .card {
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #fff;
+      color: var(--app-primary-color);
+      display:inline-block;
+      margin: 24px;
+
+    }
+    #gallery{
+      width: 100%;
+      overflow:hidden;
+      max-width: 100%;
+      max-height: 100%;
+      min-width: 100%;
+      min-height: 100%;
+      height: 100%;
+      z-index: 1000
+    }
+    </style>
+    <div id="wrapper">
+      <!-- Slideshow 4 -->
+      <div class="callbacks_container">
+        <ul class="rslides" id="slider4">
+          <li>
+            <img src="images/1.jpg" alt="">
+            <p class="caption">This is a caption</p>
+          </li>
+          <li>
+            <img src="images/2.jpg" alt="">
+            <p class="caption">This is another caption</p>
+          </li>
+          <li>
+            <img src="images/3.jpg" alt="">
+            <p class="caption">The third caption</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <tag-view></tag-view>
+<script language="javascript">
+</script>
+  </template>
+  <script>
+  Polymer({
+    is: 'gallery-slider'
+  });
+
+  resize = function(object){
+    object.style.height= object.contentWindow.document.body.scrollHeight+"px";
+  }
+  $(function () {
+
+    $("#wrapper #slider4").responsiveSlides({
+      auto: false,
+      pager: false,
+      nav: true,
+      speed: 500,
+      namespace: "callbacks",
+      before: function () {
+        $('.events').append("<li>before event fired.</li>");
+      },
+      after: function () {
+        $('.events').append("<li>after event fired.</li>");
+        alert("working");
+      }
+    });
+
+  });
+  </script>
+
+</dom-module>
