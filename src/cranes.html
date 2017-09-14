@@ -1,0 +1,72 @@
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="cranes-view">
+
+  <template>
+
+    <style>
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      .card {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        margin: 14px;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #757575;
+      }
+      .circle {
+        display: inline-block;
+        height: 64px;
+        width: 64px;
+        border-radius: 50%;
+        background: #ddd;
+        line-height: 64px;
+        font-size: 30px;
+        color: #555;
+        text-align: center;
+      }
+      h1 {
+        font-size: 22px;
+        margin: 16px 0;
+        color: #212121;
+      }
+      img.crane{
+          max-width:100%;
+
+      }
+    </style>
+    <div class="card">
+        <h1> For your service we have</h1>
+    </div>
+    <div class="card">
+      <h1>Escorts Hydra 14</h1>
+        <img class="crane" src="img/hydra14.jpg" />
+      <p>3 part hydraulically telescoping boom for more clear outreach and high lift
+Winch motor for hoisting up to 10 MT.      <a href="http://www.escortsece.com/brands-products/hydraulic-mobile-cranes/pick-n-carry-cranes-hydra-series.html?view=detail&pid=13" target="_blank">Learn more</a>
+</p>
+   </div>
+      <div class="card">
+          <h1>ACE 14XW</h1>
+          <img class="crane" src="img/14xw.jpg" />
+          <p>
+ACE 14XW has 4 cylinder, water cooled diesel engine Or equivalent engine and can lift up to 14 tonnes
+<a href="http://ace-cranes.com/portfolio/14xw/" target="_blank">Learn more</a>
+  </p>
+      </div>
+    <tag-view></tag-view>
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'cranes-view'
+
+    });
+  </script>
+
+</dom-module>
